@@ -1,0 +1,34 @@
+<div class='container-fluid'>
+  <div class='row'>
+    <p id="notice"><%= notice %></p>
+  </div>
+  <div class='row'>
+    <h1>
+      <%= @kit.title %>
+    </h1>
+  </div>
+  <div class='row'>
+    <strong>
+      <%= @kit.mission %>
+    </strong>
+  <%= link_to 'Edit', edit_kit_path(@kit) %> |
+  <%= link_to 'Back', kits_path %>
+  </div>
+
+  <div class='row'>
+    <strong>Tool box: </strong>
+    <div class='col-md-8'>
+     <div class='flex-container'>
+    <% if @kit.tools %>
+        <% @kit.tools.each do | tool | %>
+          <div class='flex-item'>
+            <h4><%= tool.name %></h4>
+          </div>
+        <% end %>
+    <% end %>
+      </div>
+    </div>
+  <%= link_to 'Add Tool', new_kit_tool_path(@kit) %>
+  </div>
+
+</div>

@@ -1,0 +1,19 @@
+// Place all the styles related to the kits controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.flex-container {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+
+.flex-item {
+  width: 25%;
+  height: 200px;
+  flex-grow: 1;
+}
+
