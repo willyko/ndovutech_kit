@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616071154) do
+ActiveRecord::Schema.define(version: 20150707222730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,9 +30,10 @@ ActiveRecord::Schema.define(version: 20150616071154) do
     t.string   "name"
     t.text     "url"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "kit_id"
+    t.string   "thumbnail_url"
   end
 
   add_index "tools", ["kit_id"], name: "index_tools_on_kit_id", using: :btree

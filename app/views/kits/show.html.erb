@@ -23,6 +23,12 @@
         <% @kit.tools.each do | tool | %>
           <div class='flex-item'>
             <h4><%= tool.name %></h4>
+            <% if tool.thumbnail_url %>
+              <div class="thumbnail">
+                 <% link_text = tool.thumbnail_url.present? ? "<img src='#{tool.thumbnail_url}'/>".html_safe : kit.url %>
+                 <%= link_to link_text, tool.url %>
+              </div>
+            <% end %>
           </div>
         <% end %>
     <% end %>
