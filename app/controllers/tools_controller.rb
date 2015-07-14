@@ -41,8 +41,10 @@ class ToolsController < ApplicationController
   # PATCH/PUT /tools/1
   # PATCH/PUT /tools/1.json
   def update
+    @kit = Kit.find(params[:kit_id])
     respond_to do |format|
       if @tool.update(tool_params)
+        @tool.set_embedly_data
         format.html { redirect_to @kit, notice: 'Tool was successfully updated.' }
         format.json { render :show, status: :ok, location: @kit }
       else
