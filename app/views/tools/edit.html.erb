@@ -1,6 +1,35 @@
 <h1>Editing Tool</h1>
 
-<%= render 'form' %>
+<%#= render 'form' %>
 
-<%= link_to 'Show', @tool %> |
-<%= link_to 'Back', tools_path %>
+<%#= link_to 'Show', @tool %> |
+<%#= link_to 'Back', tools_path %>
+<%= form_for(@tool, {url: kit_tool_path(params[:kit_id], params[:id])}) do |f| %>
+  <% if @tool.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tool.errors.count, "error") %> prohibited this tool from being saved:</h2>
+
+      <ul>
+      <% @tool.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_area :url %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
