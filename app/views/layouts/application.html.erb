@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 <head>
   <title>KitProject</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -9,7 +9,8 @@
 <body>
   <nav>
     <ul>
-      <li> <%= link_to "Home", root_path %> </li>
+      <li> <%= link_to "All Kits", root_path %> </li>
+      <li> <%= link_to "New Kit", new_kit_path %></li>
     <% if user_signed_in? %>
       <%# current user is a method from Devise that gives you the user %>
       <%# object for the currently logged in user %>
@@ -23,6 +24,7 @@
       <li><%= link_to "Log In", new_user_session_path %></li>
       <li><%= link_to "Register", new_user_registration_path %></li>
     <% end %>
+      <li> About </li>
     </ul>
   </nav>
 <%= yield %>
